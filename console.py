@@ -134,7 +134,7 @@ class HBNBCommand(cmd.Cmd):
                     key_val = element.split('=')
                     if key_val[1][0] == '"' and key_val[1][-1] == '"':
                         check_quote = key_val[1][1:-1]
-                        # check_quote = check_quote.replace('"', '\\"')
+                        # check_quote = check_quote.replace('"', '\"')
                         check_quote = check_quote.replace('_', ' ')
                     elif '.' in key_val[1]:
                         nums = key_val[1].split('.')
@@ -164,7 +164,13 @@ class HBNBCommand(cmd.Cmd):
             storage.save()
             print(new_instance.id)
             storage.save()
- 
+        else:
+            new_instance = HBNBCommand.classes[c_name]()
+            storage.new(new_instance)
+            storage.save()
+            print(new_instance.id)
+
+
     def help_create(self):
         """ Help information for the create method """
         print("Creates a class of any type")
