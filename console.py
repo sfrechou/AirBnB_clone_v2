@@ -157,7 +157,9 @@ class HBNBCommand(cmd.Cmd):
                     dict_kwargs[key_val[0]] = check_quote
                 else:
                     continue
+
             new_instance = HBNBCommand.classes[c_name]()
+
             for key, val in dict_kwargs.items():
                 # print("{}, {}".format(key, val))
                 setattr(new_instance, key, val)
@@ -273,10 +275,10 @@ class HBNBCommand(cmd.Cmd):
             else:
                 for k, v in storage._FileStorage__objects.items():
                     if k.split('.')[0] == args:
-                        print_list.append(str(v))
+                        print_list.append(v)
         else:
             for k, v in storage._FileStorage__objects.items():
-                print_list.append(str(v))
+                print_list.append(v)
 
         print(print_list)
 
