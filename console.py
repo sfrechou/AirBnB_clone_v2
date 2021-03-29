@@ -115,7 +115,7 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         """ Overrides the emptyline method of CMD """
         pass
- 
+
     def do_create(self, args):
         """ Create an object of any class"""
         params = args.split(" ")
@@ -132,9 +132,9 @@ class HBNBCommand(cmd.Cmd):
             for element in params:
                 if '=' in element:
                     key_val = element.split('=')
-                    if key_val[1][0] == '"':
+                    if key_val[1][0] == '"' and key_val[1][-1] == '"':
                         check_quote = key_val[1][1:-1]
-                        check_quote = check_quote.replace('"', '\\')
+                        # check_quote = check_quote.replace('"', '\\"')
                         check_quote = check_quote.replace('_', ' ')
                     elif '.' in key_val[1]:
                         nums = key_val[1].split('.')
