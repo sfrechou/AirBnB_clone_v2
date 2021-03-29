@@ -2,8 +2,9 @@
 """ Console Module """
 import cmd
 import sys
-from models.base_model import BaseModel
+
 from models import storage
+from models.base_model import BaseModel
 from models.user import User
 from models.place import Place
 from models.state import State
@@ -119,6 +120,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_create(self, args):
         """ Create an object of any class"""
+        print("ENTRO A CREAR")
         params = args.split(" ")
         c_name = params[0]
         if not params[0]:
