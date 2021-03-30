@@ -2,12 +2,12 @@
 """This module defines a class to manage file storage for hbnb clone"""
 import json
 from models.base_model import BaseModel
+from models.user import User
 from models.state import State
+from models.city import City
 from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
-from models.user import User
-from models.city import City
 
 
 class FileStorage:
@@ -66,8 +66,10 @@ class FileStorage:
 
     def delete(self, obj=None):
         """Deletes obj from __objects"""
+        if not obj:
+            return
         dict_iter = FileStorage.__objects.copy()
         for key, value in dict_iter.items():
-                new_key = key.split('.')
-                if new_key[1] == obj.__dict__['id']:
-                    del FileStorage.__objects[key]
+            new_key = key.split('.')
+            if new_key[1] == obj.__dict__['id']:
+                del FileStorage.__objects[key]

@@ -20,8 +20,18 @@ class DBStorage:
 
     def __init__(self):
         """ Instantiation """
-        self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'
-                           .format(getenv("HBNB_MYSQL_USER"), getenv("HBNB_MYSQL_PWD"), getenv("HBNB_MYSQL_HOST"), getenv("HBNB_MYSQL_DB")), pool_pre_ping=True)
+        text = "mysql+mysqldb"
+        a = "HBNB_MYSQL_USER"
+        b = "HBNB_MYSQL_PWD"
+        c = "HBNB_MYSQL_HOST"
+        d = "HBNB_MYSQL_DB"
+        self.__engine = create_engine('{}://{}:{}@{}/{}'
+                                      .format(text,
+                                              getenv(a),
+                                              getenv(b),
+                                              getenv(c),
+                                              getenv(d)),
+                                      pool_pre_ping=True)
         if getenv("HBNB_ENV") == 'test':
             Base.metadata.drop_all(self.__engine)
         Session = sessionmaker(bind=self.__engine)
