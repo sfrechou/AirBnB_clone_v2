@@ -1,11 +1,21 @@
 #!/usr/bin/python3
-""" """
+""" Unittest for class Basemodel """
 from models.base_model import BaseModel
 import unittest
 import datetime
 from uuid import UUID
 import json
 import os
+from models.engine.file_storage import FileStorage
+from models import storage
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
+from models.engine.db_storage import DBStorage
+from os import getenv
 
 
 class test_basemodel(unittest.TestCase):
@@ -60,7 +70,7 @@ class test_basemodel(unittest.TestCase):
         """ """
         i = self.value()
         self.assertEqual(str(i), '[{}] ({}) {}'.format(self.name, i.id,
-                         i.__dict__))
+                         i.to_dict()))
 
     def test_todict(self):
         """ """
@@ -77,8 +87,8 @@ class test_basemodel(unittest.TestCase):
     def test_kwargs_one(self):
         """ """
         n = {'Name': 'test'}
-        with self.assertRaises(KeyError):
-            new = self.value(**n)
+        new = BaseModel(**n)
+        self.assertEqual(type(new), BaseModel)
 
     def test_id(self):
         """ """
