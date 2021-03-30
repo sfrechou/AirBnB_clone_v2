@@ -1,10 +1,22 @@
 #!/usr/bin/python3
 """This is the place class"""
 from models.base_model import BaseModel, Base
-from sqlalchemy import Column, String, ForeignKey, Integer, Float
+from sqlalchemy import Column, String, ForeignKey, Integer, Float, Table
 from sqlalchemy.orm import relationship
 import os
 import models
+from models.review import Review
+from models.amenity import Amenity
+
+
+if os.getenv("HBNB_TYPE_STORAGE") == "db":
+    place_amenity = Table("place_amenity", Base.metadata,
+                          Column("place_id", String(60),
+                                 ForeignKey("places.id"),
+                                 primary_key=True),
+                          Column("amenity_id", String(60),
+                                 ForeignKey("amenities.id"),
+                                 primary_key=True))
 
 
 class Place(BaseModel, Base):
@@ -23,6 +35,8 @@ class Place(BaseModel, Base):
         longitude = Column(Float, nullable=True)
         reviews = relationship("Review", backref="place",
                                cascade="all, delete")
+        amenities = relationship("Amenity", secondary=place_amenity,
+                                 viewonly=False)
 
     else:
 
@@ -47,3 +61,15 @@ class Place(BaseModel, Base):
                 if v.place_id == self.id:
                     lista.append(recorrido[k])
             return new_list
+
+        @property
+        def amenities(self):
+            """ Amenity list """
+            return self.amenities
+
+        @amenities.setter
+        def amenities(self, obj=None):
+            """ list of amenities instances """
+            if type(obj) is Amenity:
+                lista = []
+                self.lista.append(obj.id)
