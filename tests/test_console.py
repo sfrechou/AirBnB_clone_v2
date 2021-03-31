@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" aaaa """
+""" Unittest for the Console """
 
 import pep8
 import unittest
@@ -17,7 +17,7 @@ from console import HBNBCommand
 
 
 class test_pep8aa(unittest.TestCase):
-    """ testingggggggggggggggggggggggggg """
+    """ Test for the Console """
     def test_pep8_conformance_console(self):
         """Test that console.py conforms to PEP8."""
         pep8s = pep8.StyleGuide(quiet=True)

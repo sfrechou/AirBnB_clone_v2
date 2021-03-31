@@ -1,5 +1,5 @@
 #!/usr/bin/python
-""" testing """
+""" Unittest for DB_Storage """
 from models.state import State
 from models.city import City
 from models.amenity import Amenity

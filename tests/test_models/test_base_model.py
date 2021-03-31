@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" testing """
+""" Unittest for BaseModel """
 from models.base_model import BaseModel
 import unittest
 import datetime
@@ -9,16 +9,16 @@ import os
 
 
 class test_basemodel(unittest.TestCase):
-    """ testetetetetete """
+    """ Test for BaseModel """
 
     def __init__(self, *args, **kwargs):
-        """ testetetetetete """
+        """ Test for BaseModel """
         super().__init__(*args, **kwargs)
         self.name = 'BaseModel'
         self.value = BaseModel
 
     def setUp(self):
-        """ testetetetetete """
+        """ Test for BaseModel """
         pass
 
     def tearDown(self):
@@ -28,19 +28,19 @@ class test_basemodel(unittest.TestCase):
             pass
 
     def test_default(self):
-        """ testetetetetete """
+        """ Test for BaseModel """
         i = self.value()
         self.assertEqual(type(i), self.value)
 
     def test_kwargs(self):
-        """ testetetetetete """
+        """ Test for BaseModel """
         i = self.value()
         copy = i.to_dict()
         new = BaseModel(**copy)
         self.assertFalse(new is i)
 
     def test_kwargs_int(self):
-        """ testetetetetete """
+        """ Test for BaseModel """
         i = self.value()
         copy = i.to_dict()
         copy.update({1: 2})
@@ -48,18 +48,18 @@ class test_basemodel(unittest.TestCase):
             new = BaseModel(**copy)
 
     def test_str(self):
-        """ testetetetetete """
+        """ Test for BaseModel """
         i = self.value()
         self.assertEqual(str(i), '[{}] ({}) {}'.format(self.name, i.id,
                                                        i.to_dict()))
 
     def test_created_at(self):
-        """ testetetetetete """
+        """ Test for BaseModel """
         new = self.value()
         self.assertEqual(type(new.created_at), datetime.datetime)
 
     def test_updated_at(self):
-        """ testetetetetete """
+        """ Test for BaseModel """
         new = self.value()
         self.assertEqual(type(new.updated_at), datetime.datetime)
         n = new.to_dict()
@@ -67,18 +67,18 @@ class test_basemodel(unittest.TestCase):
         self.assertFalse(new.created_at == new.updated_at)
 
     def test_todict(self):
-        """ testetetetetete """
+        """ Test for BaseModel """
         i = self.value()
         n = i.to_dict()
         self.assertEqual(i.to_dict(), n)
 
     def test_kwargs_none(self):
-        """ testetetetetete """
+        """ Test for BaseModel """
         n = {None: None}
         with self.assertRaises(TypeError):
             new = self.value(**n)
 
     def test_id(self):
-        """ testetetetetete """
+        """ Test for BaseModel """
         new = self.value()
         self.assertEqual(type(new.id), str)

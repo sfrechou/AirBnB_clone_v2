@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" testing """
+""" Unittest for User """
 import unittest
 import os
 from models.user import User
@@ -8,16 +8,16 @@ import pep8
 
 
 class TestUser(unittest.TestCase):
-    """testing usersss"""
+    """ Testing User """
 
     @classmethod
     def setUpClass(cls):
         """test"""
         cls.user = User()
-        cls.user.first_name = "Mesa"
-        cls.user.last_name = "DIEZ"
-        cls.user.email = "micorreodenene@hbtn.com"
-        cls.user.password = "contra"
+        cls.user.first_name = "John"
+        cls.user.last_name = "Smith"
+        cls.user.email = "test_email@holbertonschool.com"
+        cls.user.password = "Pocahontas"
 
     @classmethod
     def teardown(cls):

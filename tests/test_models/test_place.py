@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" testing """
+"""Unittest for Place """
 import unittest
 import os
 from models.place import Place

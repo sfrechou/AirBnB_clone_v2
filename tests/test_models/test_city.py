@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" testing """
+""" Unittest for City """
 import unittest
 import os
 from models.city import City
@@ -8,7 +8,7 @@ import pep8
 
 
 class TestCity(unittest.TestCase):
-    """ if we make a muñeco """
+    """ Test for City class """
     @classmethod
     def setUpClass(cls):
         """ create city """
@@ -18,7 +18,7 @@ class TestCity(unittest.TestCase):
 
     @classmethod
     def teardown(cls):
-        """ if we make a muñeco """
+        """ Test for City class """
         del cls.city
 
     def tearDown(self):
