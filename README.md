@@ -1,6 +1,6 @@
 <center> <h1>HBNB - AirBnb Clone</h1> </center>
 
-<center><h1> The Console: <h1></center>
+<center><h3> The Console: <h3></center>
 This repository contains the first and second stages of a collaborative student project to build a clone of the AirBnB website. 
 The first stage implements a backend interface, or console, to manage program data. Console commands allow the user to create, update, and destroy objects, as well as manage file storage. Using a system of JSON serialization/deserialization, storage is persistent between sessions.
 
@@ -159,7 +159,6 @@ python3 -m unittest tests/test_models/test_base_model.py
 <center> <h2>Authors</h2> </center>
 
 Stage 1 - The console:
-
 <br>
 
 [Ezra Nobrega](https://github.com/eNobreg) <ezra.nobrega@outlook.com>
