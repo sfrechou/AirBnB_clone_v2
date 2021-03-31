@@ -9,8 +9,9 @@ The second stage replaces the file storage by a Database storage using SQLAlchem
 maps the models to a table in database by using an O.R.M.
 
 <center><h3>File Manifest</h3> </center>
+
 | Folder/File | Content |
-| ----- | ----- | ----- |
+| ----- | ----- |
 | models | Class definitions |
 | models/engine | FileStorage and DB engine definitions |
 | tests | Unittest for all program functionalities |
@@ -68,12 +69,6 @@ Advanced syntax is implemented for the following commands:
 <br>
 <br>
 
-<center> <h2> SQL Tables </h2></center>
-
-![alt text](https://imgur.com/skq18a9)
-
-<br>
-<br>
 
 <center> <h2>Examples</h2> </center>
 <h3>Primary Command Syntax</h3>
@@ -164,10 +159,19 @@ python3 -m unittest tests/test_models/test_base_model.py
 <center> <h2>Authors</h2> </center>
 
 Stage 1 - The console:
+
+<br>
+
 [Ezra Nobrega](https://github.com/eNobreg) <ezra.nobrega@outlook.com>
+<br>
+
 [Justin Majetich](https://github.com/justinmajetich) <justinmajetich@gmail.com>
 
 Stage 2 - My SQL:
+<br>
+
 [Soledad Frechou](https://github.com/sfrechou) <2142@holbertonschool.com>
+<br>
+
 [Cecilia Giudice](https://github.com/chechg) <2100@holbertonoschool.com>
 
