@@ -22,7 +22,7 @@ class test_pep8aa(unittest.TestCase):
         """Test that console.py conforms to PEP8."""
         pep8s = pep8.StyleGuide(quiet=True)
         result = pep8s.check_files(['console.py'])
-        self.assertEqual(result.total_errors, 3,
+        self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
 
     def test_pep8_conformance_test_console(self):
@@ -45,23 +45,3 @@ class test_pep8aa(unittest.TestCase):
                          "HBNBCommand class needs a docstring")
         self.assertTrue(len(HBNBCommand.__doc__) >= 1,
                         "HBNBCommand class needs a docstring")
-
-"""
-link test pep8
-https://pep8.readthedocs.io/en/release-1.7.x/advanced.html
-"""
-
-"""
-create State name="Montevideo"
-create City name="Montevideo"
-create State name="Canelones"
-create City name="Canelones"
-create State name="Maldonado"
-create City name="Maldonado"
-create State name="Melo"
-create City name="Cerro Largo"
-create State name="Lavalleja"
-create City name="Minas"
-create State name="Flores"
-create City name="Trinidad"
-"""
