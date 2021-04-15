@@ -18,4 +18,5 @@ def do_clean(number=0):
     elif num >= 2:
         num += 1
         local("cd versions; ls -t | tail -n +{} | xargs rm -f".format(num))
-        run("cd /data/web_static/releases; ls -t | tail -n +{} | xargs rm -f".format(num))
+        run("cd /data/web_static/releases; ls -t |"
+            " tail -n +{} | xargs rm -f".format(num))
