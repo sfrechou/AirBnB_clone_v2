@@ -2,8 +2,8 @@
 # Script that sets up your web servers for the deployment of web_static
  
 # Install Ngix
-apt-get update
-apt-get install nginx
+apt-get update -y
+apt-get install -y nginx
 
 # Create the folder /data/ if it doesn’t already exist
 mkdir -p data/
