@@ -13,11 +13,13 @@ def do_clean(number=0):
     """Deletes out-of-date archives"""
     if number == 0 or number == 1:
         local("cd versions")
-        local("ls -1t | tail -n +2 | xargs rm -f")
+        local("ls -t | tail -n +2 | xargs rm -f")
         run("cd /data/web_static/releases")
-        run("ls -1t | tail -n +2 | xargs rm -f")
+        run("ls -t | tail -n +2 | xargs rm -f")
     elif number >= 2:
+        number = int(number)
+        number+= 1
         local("cd versions")
-        local("ls -1t | tail -n +" + (number + 1) + " | xargs rm -f")
+        local("ls -t | tail -n +" + number + " | xargs rm -f")
         run("cd /data/web_static/releases")
-        run("ls -1t | tail -n +" + (number + 1) + " | xargs rm -f")
+        run("ls -t | tail -n +" + number + " | xargs rm -f")
