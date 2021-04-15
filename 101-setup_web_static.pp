@@ -15,26 +15,26 @@ exec {'mkdir':
 exec {'echo':
   command  => 'echo "test_text" > /data/web_static/releases/test/index.html',
   provider => 'shell',
-  requided => 'mkdir',
+  requided => Exec['mkdir'],
 }
 
 exec {'ln':
   command  => 'ln -sf /data/web_static/releases/test/ /data/web_static/current',
   provider => 'shell',
-  requided => 'echo',
+  requided => Exec['echo'],
 }
 
 exec {'chown':
   command  => 'chown -R ubuntu:ubuntu /data/',
   provider => 'shell',
-  requided => 'ln',
+  requided => Exec['ln'],
 }
 
 exec {'sed':
   command  => 'sed -i "37i\ location /hbnb_static/ { \n\t alias /data/web_static/current/ ; \n }" /etc/nginx/sites-available/default;
                service nginx restart',
   provider => 'shell',
-  requided => 'chown',
+  requided => Exec['chown'],
 }
 
 service { 'nginx':
