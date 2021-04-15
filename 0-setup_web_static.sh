@@ -36,7 +36,7 @@ ln -sf /data/web_static/releases/test/ /data/web_static/current
 chown -R ubuntu:ubuntu /data/
 
 # Update the Nginx configuration to serve the content of /data/web_static/current/ to hbnb_static
-sed -i "37i\ location /hbnb_static { \n\t alias /data/web_static/current/ ; \n }" /etc/nginx/sites-available/default
+sed -i "37i\ location /hbnb_static/ { \n\t alias /data/web_static/current/ ; \n }" /etc/nginx/sites-available/default
 service nginx restart
 
 # Your program should always exit successfully
