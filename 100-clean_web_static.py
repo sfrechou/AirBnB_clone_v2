@@ -18,8 +18,8 @@ def do_clean(number=0):
         run("ls -t | tail -n +2 | xargs rm -f")
     elif number >= 2:
         number = int(number)
-        number+= 1
+        number += 1
         local("cd versions")
-        local("ls -t | tail -n +" + number + " | xargs rm -f")
+        local("ls -t | tail -n +{} | xargs rm -f".format(number))
         run("cd /data/web_static/releases")
-        run("ls -t | tail -n +" + number + " | xargs rm -f")
+        run("ls -t | tail -n +{} | xargs rm -f".format(number))
