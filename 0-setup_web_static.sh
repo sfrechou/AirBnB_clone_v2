@@ -1,9 +1,9 @@
- #!/usr/bin/env bash
- # Script that sets up your web servers for the deployment of web_static
+#!/usr/bin/env bash
+# Script that sets up your web servers for the deployment of web_static
  
- # Install Ngix
- apt-get update
- apt-get install nginx
+# Install Ngix
+apt-get update
+apt-get install nginx
 
 # Create the folder /data/ if it doesn’t already exist
 mkdir -p data/
