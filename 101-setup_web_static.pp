@@ -1,8 +1,8 @@
 # Redo the task #0 but by using Puppet
-package { 'nginx':
-  ensure   => installed,
-  provider => 'apt',
-  name     => 'nginx',
+exec {'install':
+  command  => 'apt-get update -y;
+               apt-get install -y nginx',
+  provider => 'shell',
 }
 
 exec {'mkdir':
@@ -10,6 +10,7 @@ exec {'mkdir':
                mkdir -p /data/web_static/releases/; mkdir -p /data/web_static/shared/;
                mkdir -p /data/web_static/releases/test/',
   provider => 'shell',
+  requided => Exec['install'],
 }
 
 exec {'echo':
@@ -35,8 +36,4 @@ exec {'sed':
                service nginx restart',
   provider => 'shell',
   requided => Exec['chown'],
-}
-
-service { 'nginx':
-  ensure  => 'running',
 }
