@@ -10,16 +10,19 @@ def hello_hbnb():
     """display “Hello HBNB!”"""
     return 'Hello HBNB!'
 
+
 @app.route('/hbnb')
 def hbnb():
     """display “HBNB”"""
     return 'HBNB'
+
 
 @app.route('/c/<text>')
 def c_is_fun(text):
     """ display “C ” followed by the value of text"""
     rep = text.replace('_', ' ')
     return 'C {}'.format(rep)
+
 
 @app.route('/python')
 @app.route('/python/<text>')
