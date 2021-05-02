@@ -22,16 +22,17 @@ def states():
 def states_id(id):
     """display a HTML page"""
     new_dict = storage.all(State)
-    for key, value in new_dict.items():
-        if id in key:
-            name = value.name
-            city_dict = value.cities
     try:
         id_send = UUID(id, version=4)
+        if id_send:
+            for key, value in new_dict.items():
+                if id in key:
+                    name = value.name
+                    city_dict = value.cities
     except:
         return render_template('9-states.html')
     return render_template('9-states.html', cities=city_dict,
-                           id=id_send, name=name)
+                           id=id, name=name)
 
 
 @app.teardown_appcontext
