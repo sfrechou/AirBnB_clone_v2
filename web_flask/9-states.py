@@ -3,7 +3,6 @@
 from flask import Flask, render_template
 from models import storage
 from models import State
-from uuid import UUID
 app = Flask(
     __name__,
     template_folder="templates"
@@ -22,15 +21,13 @@ def states():
 def states_id(id):
     """display a HTML page"""
     new_dict = storage.all(State)
-    try:
-        id_send = UUID(id, version=4)
-        if id_send:
-            for key, value in new_dict.items():
-                if id in key:
-                    name = value.name
-                    city_dict = value.cities
-    except:
-        return render_template('9-states.html')
+    if "State." + id in new_dict:
+        for key, value in new_dict.items():
+            if id in key:
+                name = value.name
+                city_dict = value.cities
+    else:
+        return render_template('9-states.html', els=True)
     return render_template('9-states.html', cities=city_dict,
                            id=id, name=name)
 
